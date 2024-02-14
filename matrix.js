@@ -34,7 +34,6 @@ const showResult = (title, containerId, rows, cols, dataArray) => {
         for (let j = 0; j < cols; j++) {
             let td = document.createElement('td');
             let span = document.createElement('span');
-            // Calculate the index in the dataArray based on current row and column
             let index = i * cols + j;
             if (index < dataArray.length) {
                 span.innerHTML = dataArray[index];
@@ -71,8 +70,6 @@ const showResult2D = (title, containerId, dataArray) => {
     let caption = table.createCaption();
     caption.textContent = title;
     container.appendChild(table);
-	// dataArray is a 2D array
-	// complete this function based on the showResult function
 }
 
 function performOperation(operation) {
@@ -81,7 +78,6 @@ function performOperation(operation) {
     console.log("1st Matrix",matrix1);
     console.log("2nd Matrix", matrix2);
     console.log("Operation", operation);
-    // Just a test result
     let result = [];
     if (operation === 'add') {
         result = addMatrices(matrix1, matrix2)
@@ -92,16 +88,10 @@ function performOperation(operation) {
     else if (operation === 'multiply') {
         result = multiplyMatrices(matrix1, matrix2)
     }
-    // Call your matrix calculation functions here
-    // For example: if (operation === 'add') { addMatrices(matrix1, matrix2); }
-	// prints suitable messages for impossible situation
-    // showResult('The Result', 'matrix3', 2, 4, result); // use suitable function for printing results
     if (result != null){
         showResult2D("Result", "matrix3", result);
     }
-    else {
-        alert("no")
-    }
+
 }
 
 const getMatrixData1D = function (matrixId) {
